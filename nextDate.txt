@@ -1,0 +1,193 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace nextDateProblem
+{
+    class Program
+    {
+        public static void Next_Date(int day,int month,int year)
+        {
+            if(month >= 1 && month <= 12 && year >= 1800 && year <= 3000)
+            {
+                if (month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12)
+                {
+                    if (day == 0)
+                    {
+                        Console.WriteLine("day can't be 0");
+                    }
+                    else if (day < 31)
+                    {
+                        day++;
+                        Console.WriteLine("next date is : " + day + " " + month + " " + year);
+                    }
+                    else if (day == 31)
+                    {
+                        if (month == 12)
+                        {
+                            day = 1;
+                            month = 1;
+                            year++;
+                            Console.WriteLine("next date is : " + day + " " + month + " " + year + " " + "Happy New Year....:)");
+                        }
+                        else
+                        {
+                            day = 1;
+                            month++;
+                            Console.WriteLine("next date is : " + day + " " + month + " " + year);
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("day can't be greater than 31");
+                    }
+                }
+                else if (month == 4 || month == 6 || month == 9 || month == 11)
+                {
+                    if (day == 0)
+                    {
+                        Console.WriteLine("day can't be 0");
+                    }
+                    else if (day < 30)
+                    {
+                        day++;
+                        Console.WriteLine("next date is : " + day + " " + month + " " + year);
+                    }
+                    else if (day == 30)
+                    {
+                        day = 1;
+                        month++;
+                        Console.WriteLine("next date is : " + day + " " + month + " " + year);
+                    }
+                    else
+                    {
+                        Console.WriteLine("day can't be greater than 30");
+                    }
+                }
+                else
+                {
+                  
+                       if(year % 100 == 0)
+                        {
+                            if(year % 400 == 0)
+                            {
+                                if (day == 0)
+                                {
+                                    Console.WriteLine("day can't be 0");
+                                }
+                               else if (day < 29)
+                                {
+                                    day++;
+                                    Console.WriteLine("next date is : " + day + " " + month + " " + year);
+                                }
+                               else if(day == 29)
+                                {
+                                    day = 1;
+                                    month++;
+                                    Console.WriteLine("next date is : " + day + " " + month + " " + year);
+                                }
+                                else
+                                {
+                                    Console.WriteLine("day is not greater than 29 in leap year in ferburary");
+                                }
+                            }
+                            else
+                            {
+
+                                if (day == 0)
+                                {
+                                    Console.WriteLine("day can't be 0");
+                                }
+                                else if (day < 28)
+                                {
+                                    day++;
+                                    Console.WriteLine("next date is : " + day + " " + month + " " + year);
+                                }
+                                else if (day == 28)
+                                {
+                                    day = 1;
+                                    month++;
+                                    Console.WriteLine("next date is : " + day + " " + month + " " + year);
+                                }
+                                else
+                                {
+                                    Console.WriteLine("Ferburary didn't have days greater than 28");
+                                }
+                            }
+                        }
+                        else
+                        {
+                            if(year % 4 == 0)
+                            {
+                                if (day == 0)
+                                {
+                                    Console.WriteLine("day can't be 0");
+                                }
+                                else if (day < 29)
+                                {
+                                    day++;
+                                    Console.WriteLine("next date is : " + day + " " + month + " " + year);
+                                }
+                                else if (day == 29)
+                                {
+                                    day = 1;
+                                    month++;
+                                    Console.WriteLine("next date is : " + day + " " + month + " " + year);
+                                }
+                                else
+                                {
+                                    Console.WriteLine("day is not greater than 29 in leap year in ferburary");
+                                }
+                            }
+                            else
+                            {
+                                if (day == 0)
+                                {
+                                    Console.WriteLine("day can't be 0");
+                                }
+                                else if (day < 28)
+                                {
+                                    day++;
+                                    Console.WriteLine("next date is : " + day + " " + month + " " + year);
+                                }
+                                else if (day == 28)
+                                {
+                                    day = 1;
+                                    month++;
+                                    Console.WriteLine("next date is : " + day + " " + month + " " + year);
+                                }
+                                else
+                                {
+                                    Console.WriteLine("Ferburary didn't have days greater than 28");
+                                }
+                            }
+                        }
+                    
+                }
+            }
+            else
+            {
+                Console.WriteLine("Month and Year should be in the range of 1-12 & 1800-3000");
+            }
+        }
+        static void Main(string[] args)
+        {
+            string str;
+            int day;
+            int month;
+            int year;
+            Console.WriteLine("enter day");
+            str = Console.ReadLine();
+            day = Convert.ToInt32(str);
+            Console.WriteLine("enter month");
+            str = Console.ReadLine();
+            month = Convert.ToInt32(str);
+            Console.WriteLine("enter year");
+            str = Console.ReadLine();
+            year = Convert.ToInt32(str);
+            Next_Date(day,month,year);
+        }
+    }
+}
